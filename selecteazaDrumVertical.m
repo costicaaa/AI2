@@ -26,19 +26,36 @@ switch metodaSelectareDrum
             %coloana depinde de coloana pixelului anterior
             if d(i-1,2) == 1%pixelul este localizat la marginea din stanga
                 %doua optiuni
-                optiune = randi(2)-1;%genereaza 0 sau 1 cu probabilitati egale 
+                optiune = randi(2)-1;%genereaza 0 sau 1 cu probabilitati egale
             elseif d(i-1,2) == size(E,2)%pixelul este la marginea din dreapta
                 %doua optiuni
                 optiune = randi(2) - 2; %genereaza -1 sau 0
             else
                 optiune = randi(3)-2; % genereaza -1, 0 sau 1
             end
-            coloana = d(i-1,2) + optiune;%adun -1 sau 0 sau 1: 
-                                         % merg la stanga, dreapta sau stau pe loc
+            coloana = d(i-1,2) + optiune;%adun -1 sau 0 sau 1:
+            % merg la stanga, dreapta sau stau pe loc
             d(i,:) = [linia coloana];
         end
+        
     case 'greedy'
-        %completati aici codul vostru
+        linia = 1;
+        [~,coloana] = min(E(1,:));
+        d(1,:) = [linia coloana];
+        for linia = 2:size(E,1)
+            if coloana == 1
+                [~,nouaColoana] = min(E(linia,coloana:coloana+1));
+                nouaColoana = nouaColoana - 1;
+            elseif coloana == size(E,2)
+                [~,nouaColoana] = min(E(linia,coloana-1:coloana));
+                nouaColoana = nouaColoana - 2;
+            else
+                [~,nouaColoana] = min(E(linia,coloana-1:coloana+1));
+                nouaColoana = nouaColoana - 2;
+            end
+            coloana = d(linia-1,2) + nouaColoana;
+            d(linia,:) = [linia coloana];
+        end
         
         
     case 'programareDinamica'

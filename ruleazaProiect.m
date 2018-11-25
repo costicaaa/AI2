@@ -6,30 +6,33 @@
 %setati parametri si imaginile de redimensionat aici
 
 %citeste o imagine
-img = imread('../data/castel.jpg');
-img = imread('../data/praga.jpg');
-img = imread('../data/delfin.jpeg');
-img = imread('../data/arcTriumf.jpg');
+% img = imread('../data/castel.jpg');
+% img = imread('../data/praga.jpg');
+% img = imread('../data/delfin.jpeg');
+% img = imread('../data/arcTriumf.jpg');
+
+img = imread('../data/bran.jpg');
 
 %reducem imaginea in latime cu 50 de pixeli
 %seteaza parametri
+
 parametri.optiuneRedimensionare = 'micsoreazaLatime';
-parametri.optiuneRedimensionare = 'micsoreazaInaltime';
+% parametri.optiuneRedimensionare = 'micsoreazaInaltime';
 
-% parametri.optiuneRedimensionare = 'maresteInaltime';
-% parametri.optiuneRedimensionare = 'maresteLatime';
-parametri.optiuneRedimensionare = 'maresteAmbele';
+% parametri.optiuneRedimensionare = 'maresteAmbele';
 
-parametri.optiuneRedimensionare = 'amplificaContinut';
+
 
 parametri.nrPixeli = 50;
-parametri.nrPixeli = 100;
-parametri.nrPixeli = 50;
+% parametri.nrPixeli = 100;
+% parametri.nrPixeli = 50;
 
 
 parametri.ploteazaDrum = 0;
 parametri.culoareDrum = [255 0 0]';%culoarea rosie
-parametri.metodaSelectareDrum = 'aleator';%optiuni posibile: 'aleator','greedy','programareDinamica'
+% parametri.metodaSelectareDrum = 'aleator';%optiuni posibile: 'aleator','greedy','programareDinamica'
+% parametri.metodaSelectareDrum = 'greedy';%optiuni posibile: 'aleator','greedy','programareDinamica'
+parametri.metodaSelectareDrum = 'programareDinamica';%optiuni posibile: 'aleator','greedy','programareDinamica'
 
 
 imgRedimensionata_proiect = redimensioneazaImagine(img,parametri); 

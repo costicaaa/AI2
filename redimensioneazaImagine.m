@@ -44,26 +44,7 @@ switch optiuneRedimensionare
         imgRedimensionata = imrotate(imgRedimensionataRotita, -90);
         
     case 'amplificaContinut'
-        %completati aici codul vostru
-        img1 = imresize(img,2);
-        [H, W, ~] = size(img1);
-        [h, w, ~] = size(img);
-        nrPixeliLatime = W - w;
-        nrPixeliInaltime = H - h;
-        imgRedimensionata = micsoreazaLatime(img1,nrPixeliLatime,metodaSelectareDrum,...
-            ploteazaDrum,culoareDrum);
-        imgRedimensionata = imrotate(imgRedimensionata, -90);
-        imgRedimensionata = micsoreazaLatime(imgRedimensionata,nrPixeliInaltime,metodaSelectareDrum,...
-            ploteazaDrum,culoareDrum);
-        imgRedimensionata = imrotate(imgRedimensionata, 90);
         
-        f = [1 0 -1 ...
-            1 0 -1 ...
-            1 0 -1];
-        
-%         imgRedimensionata = rgb2gray(imgRedimensionata);
-        
-        imgRedimensionata = imfilter(imgRedimensionata, f);
         
     case 'eliminaObiect'
         %completati aici codul vostru
